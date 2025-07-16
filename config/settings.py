@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'MTV.apps.MtvConfig',
+    'vote.apps.VoteConfig',
 ]
 
 MIDDLEWARE = [

@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from MTV import views
+from vote import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('MTV/', include('MTV.urls')),
+    path('vote/', include('vote.urls')),
     path('',views.index),
 ]
