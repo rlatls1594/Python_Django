@@ -1,0 +1,33 @@
+{% extends "board_base.html" %}
+{% block content %}
+
+<section class="board_form-block">
+<div class="container mt-3">
+  <form method="post" enctype="multipart/form-data">
+    <div class="card">
+      <div class="card-header input-group">
+        <span class="input-group-text">제목 입력</span>
+        <input type="text" class="form-control" name="username" placeholder="제목을 입력하세요" id="username" value="">
+      </div>
+      <div class="card-header input-group">
+        <input type="file" class="form-control" name="username" id="username" value="">
+      </div>
+      <div class="card-body">
+        <textarea class="form-control" name="content" rows="20" placeholder="내용을 입력하세요" style="resize: none;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-dark">게시글 등록</button>
+    </div>
+  </form>
+</div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
