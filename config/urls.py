@@ -17,10 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Board import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Board/', include('Board.urls')),
     path('', views.board_list),
-    path('', views.board_detail),
-]
+    path('common/', include('common.urls')),
+    path('', views.board_list),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
