@@ -1,0 +1,31 @@
+{# css_test/templates/css_test/main/header.html #}
+{% load static %}
+
+<header class="site-header">
+    <div class="container">
+        <div class="site-title"> {# 이 div는 헤더에서 로고/사이트 이름을 감싸는 역할을 합니다. #}
+            <a href="{% url 'css_test:index' %}">잔잔한 호수</a> {# 이제 이 부분이 "잔잔한 호수" 버튼 역할을 합니다. #}
+        </div>
+        <nav class="main-navigation">
+            <button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+            <ul class="menu">
+                <li class="menu-item"><a href="{% url 'css_test:index' %}">문화공간</a></li>
+                <li class="menu-item"><a href="#">전시/행사</a></li> {# 실제 URL로 변경 필요 #}
+                <li class="menu-item"><a href="#">커뮤니티</a></li> {# 실제 URL로 변경 필요 #}
+                <li class="menu-item"><a href="#">마이페이지</a></li> {# 실제 URL로 변경 필요 #}
+
+                {# 로그인 상태에 따른 조건부 메뉴 #}
+                {% if user.is_authenticated %}
+                    {# 사용자가 로그인 했을 때 보일 항목들 #}
+                    <li class="menu-item"><a href="{% url 'logout' %}">로그아웃</a></li> {# Django logout URL #}
+                    <li class="menu-item"><a href="{% url 'profile' %}">내 정보</a></li> {# 사용자 프로필/마이페이지 URL #}
+                {% else %}
+                    {# 사용자가 로그인하지 않았을 때 보일 항목들 #}
+                    <li class="menu-item current-menu-item"><a href="{% url 'css_test:login' %}">로그인</a></li> {# Django login URL #}
+                    <li class="menu-item"><a href="{% url 'css_test:signup' %}">회원가입</a></li> {# Django signup URL #}
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="mobile-navigation"></div>
+    </div>
+</header>
